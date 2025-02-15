@@ -329,13 +329,21 @@ private fun EditMessage(shown: Boolean) {
     //           disappearance.
     AnimatedVisibility(
         visible = shown,
-        enter = slideInVertically(),
-        exit = slideOutVertically()
+        enter = slideInVertically(
+            // Enters by sliding down from offset -fullHeight to 0.
+            initialOffsetY = { fullHeight -> -fullHeight },
+            animationSpec = tween(durationMillis = 150, easing = LinearOutSlowInEasing)
+        ),
+        exit = slideOutVertically(
+            // Exits by sliding up from offset 0 to -fullHeight.
+            targetOffsetY = { fullHeight -> -fullHeight },
+            animationSpec = tween(durationMillis = 250, easing = FastOutLinearInEasing)
+        )
     ) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
             color = MaterialTheme.colorScheme.secondary,
-            shadowElevation = 18.dp
+            elevation = 4.dp
         ) {
             Text(
                 text = stringResource(R.string.edit_message),

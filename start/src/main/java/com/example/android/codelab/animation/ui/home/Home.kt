@@ -348,7 +348,7 @@ private fun EditMessage(shown: Boolean) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
             color = MaterialTheme.colorScheme.secondary,
-            elevation = 4.dp
+            shadowElevation = 4.dp // Use shadowElevation instead of elevation
         ) {
             Text(
                 text = stringResource(R.string.edit_message),
@@ -357,6 +357,7 @@ private fun EditMessage(shown: Boolean) {
         }
     }
 }
+
 
 /**
  * Returns whether the lazy list is currently scrolling up.

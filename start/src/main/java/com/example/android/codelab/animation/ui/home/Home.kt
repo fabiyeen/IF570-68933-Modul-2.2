@@ -616,6 +616,7 @@ private fun LoadingRow() {
             animation = keyframes {
                 durationMillis = 1000
                 0.7f at 500
+                0.9f at 800
             },
             repeatMode = RepeatMode.Reverse
         ),
